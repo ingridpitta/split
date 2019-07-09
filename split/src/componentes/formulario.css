@@ -1,0 +1,149 @@
+.conteudoLogin{
+    display: flex;
+    flex-direction: column;
+    color:#413A5F;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.cabecalho h1{
+    font-weight: bold;
+    margin: 0;
+}
+
+.cabecalho h2{
+    font-weight: normal;
+}
+
+.loginRedes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #413A5F;
+    width: 250px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.loginRedes i{
+    font-size: 24px;
+    color: #413A5F;
+    padding: 2px;
+}
+
+.loginRedes button{
+    padding: 10px;
+    border-radius: 50%;
+    border-color: #413A5F;
+    color: #413A5F;
+    background: none;
+    outline: none;
+    transform: scale(1);
+    transition: transform ease 1s;
+    z-index: 1;
+    box-shadow: 0px 6px 10px rgba(65,58,95, 0.1);
+    cursor: pointer;
+}  
+
+.loginRedes button:active{
+    transform: scale(0.9);
+}
+
+.loginRedes button:hover {
+    background: #413A5F;
+    box-shadow: 0px 10px 15px rgba(65,58,95, 0.4);
+}
+
+i:hover{
+    color: white;
+}
+
+.fbIcon i{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+    margin: 10px;
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 140px;
+    height: 0.2px;
+    background: #413A5F;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+.dadosLogin{
+    margin: 0 auto;
+}
+
+.formLogin{
+    display: flex;
+    flex-direction: column;
+}
+
+.formLogin input{
+    padding: 15px;
+    margin: 10px;
+    border-radius: 30px;
+    border: 0.5px #413A5F solid;
+    width: 300px;
+    color: grey;
+    font-size: 12px;
+    font-weight: bold;
+    outline: none;
+}
+
+.formLogin ::placeholder{
+    font-weight: normal;
+}
+
+.formLogin button{
+    margin: 15px auto;
+}
+
+.btnLogin{
+    width: 150px;
+    padding: 10px;
+    border-radius: 28px;
+    color: white;
+    background: #413A5F;
+    font-weight: bold;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0px 6px 10px rgba(65,58,95, 0.1);
+    transition: all 0.3s ease 0s;
+    transform: scale(1);
+    cursor: pointer;
+}
+
+.btnLogin:hover{
+    box-shadow: 0px 10px 15px rgba(65,58,95, 0.4);
+}
+
+.btnLogin:active{
+    transform: scale(0.9);
+}

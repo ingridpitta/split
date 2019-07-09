@@ -1,0 +1,73 @@
+
+.cadastro{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    max-width: 500px;
+    background:
+    linear-gradient(
+      rgba(128,128,128,.95),rgba(65,58,95,.74) 
+    ),
+    url('../img/adult-adventure-back-view-917510.jpg') no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.conteudoCadastro{
+    margin: 110px auto;
+    width: 350px;
+}
+
+.sair{
+    text-align: right;
+    margin-right: 30px;
+}
+
+.sair button{
+    padding: 10px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold; 
+    margin-top: 20px;
+    outline: none;
+    transition: all 0.3s ease 0s;
+    transform: scale(1);
+    cursor: pointer;
+}
+
+.sair button:active{
+    transform: scale(0.9);
+}
+
+.btnCadastro{
+    margin-top: 30px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 28px;
+    color: white;
+    background: none;
+    font-weight: bold;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0px 6px 10px rgba(65,58,95, 0.1);
+    transition: all 0.3s ease 0s;
+    transform: scale(1);
+    cursor: pointer;
+}
+
+.btnCadastro:hover{
+    box-shadow: 0px 10px 15px rgba(65,58,95, 0.4);
+    color: #413A5F;
+    background: white;
+}
+
+.btnCadastro:active{
+    transform: scale(0.9);
+}
+  
+.tituloCadastro{
+    font-size: 32px;
+}

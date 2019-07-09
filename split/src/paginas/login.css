@@ -1,0 +1,11 @@
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.containerLogin{
+    width: 60%;
+    margin: 0 auto;
+}
