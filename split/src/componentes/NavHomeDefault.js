@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import './navHomeDefault.css';
+import { Link } from 'react-router-dom'
 
 class NavHomeDefault extends Component {
     render() {
       return (
         <nav className={this.props.classNav}>
-            <img src={this.props.src} alt={this.props.alt} title={this.props.title}/>
+            <Link to="/"><img src={this.props.src} alt={this.props.alt} title={this.props.title}/></Link>
             <ul>
-                <li>{this.props.primeiraPagina}</li>
+                <li><Link to="/">{this.props.primeiraPagina}</Link></li>
                 <li><span>{this.props.divisor}</span></li>
-                <li>{this.props.segundaPagina}</li>
+                <li><Link to="/sobre">{this.props.segundaPagina}</Link></li>
             </ul>
-            <button className={this.props.classBtn}>{this.props.btn}</button>
+            <Link to="/login"><button className={this.props.classBtn}>{this.props.btn}</button></Link>
         </nav>       
       );
     }

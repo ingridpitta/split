@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './formulario.css';
+import { Link } from 'react-router-dom'
 
 
 class Formulario extends Component {
@@ -24,7 +25,7 @@ class Formulario extends Component {
                 <form className='formLogin'>
                     <input type={this.props.usernameInputType} name={this.props.inputNameUser}placeholder={this.props.usernamePlaceholder}/>
                     <input type={this.props.passwordInputType} name={this.props.inputNamePassword} placeholder={this.props.passwordPlaceholder} />
-                    <button className='btnLogin'>{this.props.btn}</button>
+                    <Link to="/dashboard"><button className='btnLogin'>{this.props.btn}</button></Link>
                 </form>  
             </section>
         </div> 

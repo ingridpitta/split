@@ -7,7 +7,7 @@ import Chamada from '../componentes/Chamada';
 class Home extends Component {
   render() {
     return (
-        <div className="container">
+        <div className="containerHome">
             <span className="conteudo">
                 <NavHomeDefault
                 classNav="navbar"

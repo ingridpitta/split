@@ -9,6 +9,11 @@
     text-align: center;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .navbar ul{
     margin: 16px auto;
     display: flex;

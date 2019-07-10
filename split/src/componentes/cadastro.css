@@ -14,6 +14,11 @@
     text-align: center;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .conteudoCadastro{
     margin: 110px auto;
     width: 350px;
