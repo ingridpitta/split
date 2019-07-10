@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import './formulario.css';
 import { Link } from 'react-router-dom'
-import firebase, { auth, provider } from './../firebase';
+import firebase, { database ,auth, provider } from './../firebase';
 
 
 class Formulario extends Component {
     render() {
+        
+
+
+
+        // firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        //     // Handle Errors here.
+        //     var errorCode = error.code;
+        //     var errorMessage = error.message;
+        //     // ...
+        //   });
+
+
       return (
         <div className='conteudoLogin'>
             <header>

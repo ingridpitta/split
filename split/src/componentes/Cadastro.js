@@ -12,7 +12,7 @@ class Cadastro extends Component {
             <div className='conteudoCadastro'>
                 <h2 className='tituloCadastro'>{this.props.titulo}</h2>
                 <h2 className='textoCadastro'>{this.props.subtitulo}</h2>
-                <Link to="/novousuario"><button className='btnCadastro'>{this.props.btn}</button></Link>
+                <Link to="/cadastro"><button className='btnCadastro'>{this.props.btn}</button></Link>
             </div>
         </article>       
       );

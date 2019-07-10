@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './viagem.css';
 import { Link } from 'react-router-dom'
-import firebase, { auth, provider } from './../firebase.js';
+import firebase, {database ,auth, provider, providerFb, providerTw} from './../firebase.js';
 
 
 class Viagem extends Component {
