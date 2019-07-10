@@ -6,9 +6,9 @@ class Chamada extends Component {
       return (
         <div className="chamada">
             <h1>{this.props.conteudoChamada}</h1>
-            <div class="dotstyle dotstyle-fillup">
+            <div className="dotstyle dotstyle-fillup">
                 <ul>
-                    <li class="current"><a href="#"></a></li>
+                    <li className="current"><a href="#"></a></li>
                     <li><a href="#"></a></li>
                     <li><a href="#"></a></li>
                     <li><a href="#"></a></li>

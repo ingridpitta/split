@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './formulario.css';
 import { Link } from 'react-router-dom'
+import firebase, { auth, provider } from './../firebase';
 
 
 class Formulario extends Component {
@@ -24,8 +25,9 @@ class Formulario extends Component {
             <section className='dadosLogin'>
                 <form className='formLogin'>
                     <input type={this.props.usernameInputType} name={this.props.inputNameUser}placeholder={this.props.usernamePlaceholder}/>
-                    <input type={this.props.passwordInputType} name={this.props.inputNamePassword} placeholder={this.props.passwordPlaceholder} />
-                    <Link to="/dashboard"><button className='btnLogin'>{this.props.btn}</button></Link>
+                    <input type={this.props.passwordInputType} name={this.props.inputNamePassword} placeholder={this.props.passwordPlaceholder}/>
+                    
+                    <Link to="/dashboard"><button className='btnLogin'>{this.props.btn}</button></Link> 
                 </form>  
             </section>
         </div> 
