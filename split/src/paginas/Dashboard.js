@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import splitLogo from './../icons/logo/split_logo_new.svg';
+import splitLogo from './../icons/logo/split_logo_new_white.png';
 import './dashboard.css';
 import { Link } from 'react-router-dom'
 import Viagem from './../componentes/Viagem'
+import NavDashboard from './../componentes/NavDashboard'
 
 
 
@@ -11,16 +12,19 @@ class Dashboard extends Component {
     return (
         <div className="containerDashboard">
             <div className="conteudoDashboard">
-                <div>
-                    <nav className="navDashboard">
-                        <Link to="/"><img src={splitLogo}/></Link>
-                        <Link to="/"><button>Logout</button></Link>
-                    </nav>
-                </div>
+                <NavDashboard
+                classNameNav="navDashboard"
+                src={splitLogo}
+                classNamePesquisa="pesquisaBarra"
+                inputType="text"
+                inputName="pesquisa"
+                inputPlaceholder="🔍"
+                classNameBtn="btnLogout"
+                />
                 <Viagem
                 inputTypeTitulo="text"
                 titulo="titulo"
-                tituloPlaceholder="Nome da Viagem"
+                tituloPlaceholder="Para onde você está viajando?"
                 id="story"
                 rows="5"
                 cols="33"
