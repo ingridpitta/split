@@ -8,9 +8,9 @@ class Viagem extends Component {
     constructor() {
         super();
         this.state = {
-          username: '',
-          password: '',
-          items: []
+          titulo: '',
+          participantes: [],
+          viagens: []
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -18,19 +18,22 @@ class Viagem extends Component {
     }
 
     componentDidMount() {
-        const itemsRef = firebase.database().ref('items');
-        itemsRef.on('value', (snapshot) => {
-          let items = snapshot.val();
+        const viagensRef = firebase.database().ref('viagens');
+        viagensRef.on('value', (snapshot) => {
+          let viagens = snapshot.val();
           let newState = [];
-          for (let item in items) {
+          
+          for (let item in viagens) {
+            let arrParticipantes = viagens[item].participantesViagem;
+            let arrParticipanteSplit = arrParticipantes.split(",");
             newState.push({
-              id: item,
-              usuario: items[item].usuario,
-              senha: items[item].senha
+              id: item, 
+              tituloViagem: viagens[item].tituloViagem,
+              participantesViagem: arrParticipanteSplit 
             });
           }
           this.setState({
-            items: newState
+            viagens: newState
           });
         });
     }
@@ -43,23 +46,23 @@ class Viagem extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const itemsRef = firebase.database().ref('items');
-        const item = {
-          usuario: this.state.username,
-          senha: this.state.password
+        const viagensRef = firebase.database().ref('viagens');
+        const viagens = {
+          tituloViagem: this.state.titulo,
+          participantesViagem: this.state.participantes
         }
 
-        itemsRef.push(item);
+        viagensRef.push(viagens);
 
         this.setState({
-          username: '',
-          password: ''
+          titulo: '',
+          participantes: ''
         });
     }
 
-    removeItem(itemId) {
-        const itemRef = firebase.database().ref(`/items/${itemId}`);
-        itemRef.remove();
+    removeViagens(viagensId) {
+        const viagensRef = firebase.database().ref(`/viagens/${viagensId}`);
+        viagensRef.remove();
     }
 
     render() {
@@ -67,9 +70,9 @@ class Viagem extends Component {
         <div className='conteudoViagem'>
             <section className='dadosViagem'>
                 <form className='formViagem'onSubmit={this.handleSubmit}>
-                    <input type={this.props.usernameInputType} name={this.props.inputNameUser}placeholder={this.props.usernamePlaceholder} onChange={this.handleChange} value={this.state.username}/>
-                    <input type={this.props.passwordInputType} name={this.props.inputNamePassword} placeholder={this.props.passwordPlaceholder} onChange={this.handleChange} value={this.state.password}/>
-                    
+                    <input type={this.props.inputTypeTitulo} name={this.props.titulo} placeholder={this.props.tituloPlaceholder} onChange={this.handleChange} value={this.state.titulo}/>
+                    <textarea type={this.props.inputTypeParticipantes} id={this.props.id} name={this.props.participantes} placeholder={this.props.participantesPlaceholder} onChange={this.handleChange} value={this.state.participantes}
+                    rows={this.props.rows} cols={this.props.cols}></textarea>
                     <button className='btnViagem'>{this.props.btn}</button> 
                 </form>  
             </section>
@@ -77,12 +80,12 @@ class Viagem extends Component {
             <section className='display-item'>
                 <div className="wrapper">
                     <ul>
-                    {this.state.items.map((item) => {
+                    {this.state.viagens.map((viagens) => {
                         return (
-                        <li key={item.id}>
-                            <h3>{item.senha}</h3>
-                            <p>brought by: {item.usuario}</p>
-                            <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
+                        <li key={viagens.id}>
+                            <h3>{viagens.tituloViagem}</h3>
+                            <p>Participantes: {viagens.participantesViagem}</p>
+                            <button onClick={() => this.removeViagens(viagens.id)}>Remove Item</button>
                         </li>
                         )
                     })}

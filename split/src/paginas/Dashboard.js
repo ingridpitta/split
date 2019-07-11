@@ -18,12 +18,15 @@ class Dashboard extends Component {
                     </nav>
                 </div>
                 <Viagem
-                usernameInputType="text"
-                inputNameUser="username"
-                usernamePlaceholder="usuário"
-                passwordInputType="password"
-                inputNamePassword="password"
-                passwordPlaceholder="senha"
+                inputTypeTitulo="text"
+                titulo="titulo"
+                tituloPlaceholder="Nome da Viagem"
+                id="story"
+                rows="5"
+                cols="33"
+                participantes="participantes"
+                participantesPlaceholder="Com quem você está viajando?"
+                inputTypeParticipantes ="text"
                 btn="Nova Viagem"
                 />
             </div>
