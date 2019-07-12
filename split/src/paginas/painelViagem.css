@@ -1,0 +1,95 @@
+.targetVoltar{
+  color: #413A5F;
+  font-weight: bold;
+  margin-left: 50px;
+  
+}
+
+.dadosViagemTarget{
+  margin-top: 10px;
+}
+
+.display-itemTarget{
+  max-width: 1024px;
+  width: 100%;
+  margin: auto;
+}
+
+
+.wrapperTarget{
+  max-width: 1024px;
+  width: 100%;
+  
+}
+
+.wrapperTarget ul{
+  padding:0;
+}
+
+.wrapperTarget li{
+  max-width: 1024px;
+  width: 100%;
+  list-style: none;
+  border: #413A5F;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(67, 65, 65, 0.1);
+  transition: all 0.3s ease 0s;
+  transform: scale(1);
+  cursor: pointer;
+  padding:20px;
+  margin: auto;
+}
+
+.wrapperTarget li:hover{
+  box-shadow: 0px 5px 8px rgba(67, 65, 65, 0.4);
+}
+
+.wrapperTarget li:active{
+  transform: scale(0.9); 
+}
+
+.containerCardTarget {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tituloCardViagemTarget{
+  color: #413A5F;
+  margin: 0;
+}
+
+.cardTarget li{
+  max-width: 800px;
+  width: 100%;
+  max-height: 1000px;
+  height: 50%;
+}
+
+.containerBtnCardViagemPainel{
+  text-align: right;
+}
+
+p{
+  color: #413A5F;
+  word-wrap: break-word;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btnCardViagemPainel{
+  margin-top: 60px;
+  padding: 0;
+  border: none;
+  color: #413A5F;
+  background: none;
+  border-radius: 28px;
+  font-weight: bold;
+  font-size: 14px;
+  outline: none;
+  z-index:2;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './componenteDePagina404.css';
+import './account.css';
 import { Link } from 'react-router-dom'
 
-class ComponenteDePagina404 extends Component {
+class Account extends Component {
     render() {
       return (
         <div>
@@ -11,4 +11,4 @@ class ComponenteDePagina404 extends Component {
       );
     }
   }
-export default ComponenteDePagina404;
+export default Account;

@@ -1,5 +1,6 @@
 // src/firebase.js
-import firebase from 'firebase'
+import firebase from 'firebase';
+import 'firebase/auth';
 
 const config = {
     apiKey: "AIzaSyAmFONYlk-1nDFhGMpEmSJNqaPovCZAQOA",
@@ -13,5 +14,8 @@ const config = {
 
 firebase.initializeApp(config);
 export const provider = new firebase.auth.GoogleAuthProvider();
+export const providerFb = new firebase.auth.FacebookAuthProvider();
+export const providerTw = new firebase.auth.TwitterAuthProvider();
 export const auth = firebase.auth();
+export const database = firebase.database();
 export default firebase;

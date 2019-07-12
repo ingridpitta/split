@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import './formulario.css';
 import { Link } from 'react-router-dom'
-import firebase, { auth, provider } from './../firebase';
+import firebase, { database ,auth, provider } from './../firebase';
+import * as ROUTES from '../constants/routes';
 
 
 class Formulario extends Component {
     render() {
+        
+
+
+
+        // firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        //     // Handle Errors here.
+        //     var errorCode = error.code;
+        //     var errorMessage = error.message;
+        //     // ...
+        //   });
+
+
       return (
         <div className='conteudoLogin'>
             <header>
@@ -27,7 +40,7 @@ class Formulario extends Component {
                     <input type={this.props.usernameInputType} name={this.props.inputNameUser}placeholder={this.props.usernamePlaceholder}/>
                     <input type={this.props.passwordInputType} name={this.props.inputNamePassword} placeholder={this.props.passwordPlaceholder}/>
                     
-                    <Link to="/dashboard"><button className='btnLogin'>{this.props.btn}</button></Link> 
+                    <Link to={ROUTES.DASHBOARD}><button className='btnLogin'>{this.props.btn}</button></Link> 
                 </form>  
             </section>
         </div> 
