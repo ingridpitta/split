@@ -1,6 +1,29 @@
+.targetVoltar{
+  color: #413A5F;
+  font-weight: bold;
+  margin-left: 50px;
+  
+}
+
+.dadosViagemTarget{
+  margin-top: 10px;
+}
+
+.display-itemTarget{
+  max-width: 1024px;
+  width: 100%;
+  margin: auto;
+}
+
+
 .wrapperTarget{
   max-width: 1024px;
   width: 100%;
+  
+}
+
+.wrapperTarget ul{
+  padding:0;
 }
 
 .wrapperTarget li{
@@ -14,6 +37,7 @@
   transform: scale(1);
   cursor: pointer;
   padding:20px;
+  margin: auto;
 }
 
 .wrapperTarget li:hover{
@@ -49,6 +73,8 @@
 p{
   color: #413A5F;
   word-wrap: break-word;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .btnCardViagemPainel{

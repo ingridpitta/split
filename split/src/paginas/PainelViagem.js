@@ -105,7 +105,8 @@ class PainelViagem extends Component {
             />
         </div>
         <div>
-        <section className='dadosViagem'>
+        <section className='dadosViagemTarget'>
+        <Link to={ROUTES.DASHBOARD} className="targetVoltar">Voltar</Link>
             <form className='formViagem'onSubmit={this.handleSubmit}>
                 <input type="text" name="gasto" placeholder="Gastei com?" onChange={this.handleChange} value={this.state.gasto}/>
                 <input type="text" name="pagante" placeholder= "Quem pagou?" onChange={this.handleChange} value={this.state.pagante}/>
@@ -115,9 +116,10 @@ class PainelViagem extends Component {
         </section>
 
 
-        <section className='display-item'>
+        <section className='display-itemTarget'>
+          
                 <div className="wrapperTarget">
-                  <Link to={ROUTES.DASHBOARD}>Voltar</Link>
+                  
                     <ul className="cardTarget">
                     {this.state.viagens.map((viagens) => {
                       if(viagens.id == id){

@@ -4,6 +4,10 @@
   margin: 0 auto;
 }
 
+.dadosViagem{
+  margin-top: 10px;
+}
+
 .formViagem{
   max-width: 1024px;
   width: 100%;
