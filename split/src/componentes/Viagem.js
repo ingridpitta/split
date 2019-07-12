@@ -15,7 +15,7 @@ class Viagem extends Component {
           participantes: [],
           viagens: [],
           avatar:[],
-          custos:{}
+          // custos:"",
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -37,7 +37,7 @@ class Viagem extends Component {
               tituloViagem: viagens[item].tituloViagem,
               participantesViagem: arrParticipanteJoin,
               avatarParticipantes: viagens[item].avatarParticipantes,
-              custoViagem: viagens[item].custosViagem
+              custoViagem: viagens[item].custoViagem
             });
           }
           this.setState({
@@ -58,7 +58,10 @@ class Viagem extends Component {
         let participantesViagemSplit = (this.state.participantes).split(",");
         const viagens = {
           tituloViagem: this.state.titulo,
-          custoViagem: [" "],
+          custoViagem:[{gasto:"",
+                        valor:"",
+                        pagantes:"",
+                      }],
           participantesViagem: participantesViagemSplit,
           avatarParticipantes:participantesViagemSplit.map(function(item){
             let letras = item.split('')
@@ -79,7 +82,7 @@ class Viagem extends Component {
           titulo: '',
           participantes: '',
           avatar:'',
-          custos:''
+          // custos:''
         });
     }
 
