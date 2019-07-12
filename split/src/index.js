@@ -5,6 +5,7 @@ import Login from './paginas/Login'
 import NovoUsuario from './paginas/NovoUsuario';
 import Sobre from './paginas/Sobre';
 import Dashboard from './paginas/Dashboard';
+import PainelViagem from './paginas/PainelViagem';
 // import Erro from '../paginas/ComponenteDePagina404';
 import Account from './paginas/Account';
 import Admin from './paginas/Admin';
@@ -17,18 +18,19 @@ import {
   } from 'react-router-dom';
 import * as ROUTES from './constants/routes';
   
-
+console.log(PainelViagem)
 ReactDOM.render(
          <Router>
              <Switch>
                 <Route exact path={ROUTES.LOGIN} component={Login} />
                 <Route path={ROUTES.CADASTRO} component={NovoUsuario} />
-                <Route path={ROUTES.SOBRE} component={Sobre} />
+                <Route path={ROUTES.PAINELVIAGEM} component={PainelViagem} />
                 <Route path={ROUTES.PASSWORDFORGET} component={PasswordForget} />
                 <Route path={ROUTES.DASHBOARD} component={Dashboard} />
                 <Route path={ROUTES.ACCOUNT} component={Account} />
                 <Route path={ROUTES.ADMIN} component={Admin} />
                 <Route path={ROUTES.HOME} component={Home} />
+                <Route path={ROUTES.SOBRE} component={Sobre} />
             </Switch>
         </Router>
 , document.getElementById('root'));

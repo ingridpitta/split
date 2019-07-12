@@ -18,7 +18,7 @@ class Dashboard extends Component {
                 classNamePesquisa="pesquisaBarra"
                 inputType="text"
                 inputName="pesquisa"
-                inputPlaceholder="🔍"
+                inputPlaceholder="Pesquisar"
                 classNameBtn="btnLogout"
                 />
                 <Viagem

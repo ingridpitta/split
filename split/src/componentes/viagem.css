@@ -143,6 +143,22 @@ p{
 }
 
 .containerBtnCardViagem{
-  text-align: right;
   margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnCardEditarViagem{
+  padding: 0;
+  border: none;
+  color: #413A5F;
+  background: none;
+  border-radius: 28px;
+  font-weight: bold;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease 0s;
+  transform: scale(1);
+  cursor: pointer;
+  margin-top: 0;
 }

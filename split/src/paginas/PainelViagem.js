@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import './viagem.css';
+import './painelViagem.css';
+import splitLogo from './../icons/logo/split_logo_new_white.png';
 import { Link } from 'react-router-dom'
 import firebase, {database ,auth, provider, providerFb, providerTw} from './../firebase.js';
 import * as ROUTES from '../constants/routes';
+import NavDashboard from './../componentes/NavDashboard';
 
 
-class Viagem extends Component {
+class PainelViagem extends Component {
     constructor() {
         super();
         this.state = {
@@ -83,48 +85,19 @@ class Viagem extends Component {
     
     render() {
       return (
-        <div className='conteudoViagem'>
-            <section className='dadosViagem'>
-                <form className='formViagem'onSubmit={this.handleSubmit}>
-                    <input type={this.props.inputTypeTitulo} name={this.props.titulo} placeholder={this.props.tituloPlaceholder} onChange={this.handleChange} value={this.state.titulo}/>
-                    <input type={this.props.inputTypeParticipantes} id={this.props.id} name={this.props.participantes} placeholder={this.props.participantesPlaceholder} onChange={this.handleChange} value={this.state.participantes}
-                    rows={this.props.rows} cols={this.props.cols}/>
-                    <button className='btnViagem'>{this.props.btn}</button> 
-                </form>  
-            </section>
-
-            <section className='display-item'>
-                <div className="wrapper">
-                    <ul className="card">
-                    {this.state.viagens.map((viagens) => {
-                        return (
-                        <li key={viagens.id}>
-                          <div className='containerCard'>
-                            <h3 className='tituloCardViagem'>{viagens.tituloViagem}</h3>
-                            <div className="avatar">
-                              <div>{viagens.avatarParticipantes.map((index) =>{
-                                return(<div className="avatarInicial">{index}</div>)
-                              })}</div>
-                            </div>
-                            
-                          </div>
-                          
-                          <div className='containerBtnCardViagem' >
-                            <button className='btnCardViagem'onClick={() => this.removeViagens(viagens.id)}>REMOVER</button>
-                            <Link to={ROUTES.PAINELVIAGEM}><button className='btnCardEditarViagem'>EDITAR</button></Link>
-                          </div>
-                          
-                          
-                          
-                        </li>
-                        )
-                    })}
-                    
-                    </ul>
-                </div>
-            </section>
-        </div> 
+        <div>
+            <NavDashboard
+            classNameNav="navDashboard"
+            src={splitLogo}
+            classNamePesquisa="pesquisaBarra"
+            inputType="text"
+            inputName="pesquisa"
+            inputPlaceholder="Pesquisar"
+            classNameBtn="btnLogout"
+            />
+        </div>
+           
       );
     }
   }
-  export default Viagem;
+  export default PainelViagem;

@@ -1,5 +1,5 @@
 export const HOME = '/';
-export const SOBRE = '/sobre';
+export const PAINELVIAGEM = '/painel';
 export const CADASTRO = '/cadastro';
 export const LOGIN = '/login';
 export const PASSWORDFORGET = '/pw-forget';
@@ -7,3 +7,4 @@ export const DASHBOARD = '/dashboard';
 export const ACCOUNT = '/account';
 export const ADMIN = '/admin';
 export const ERRO = '/erro404';
+export const SOBRE = '/sobre';
