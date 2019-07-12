@@ -105,7 +105,7 @@ class PainelViagem extends Component {
             />
         </div>
         <div>
-        <section className='dadosViagemTarget'>
+        <section className='dadosViagem'>
         <Link to={ROUTES.DASHBOARD} className="targetVoltar">Voltar</Link>
             <form className='formViagem'onSubmit={this.handleSubmit}>
                 <input type="text" name="gasto" placeholder="Gastei com?" onChange={this.handleChange} value={this.state.gasto}/>
