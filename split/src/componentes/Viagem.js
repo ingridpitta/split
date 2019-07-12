@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './viagem.css';
-import { Link } from 'react-router-dom'
+
+import { Route ,Link } from 'react-router-dom'
 import firebase, {database ,auth, provider, providerFb, providerTw} from './../firebase.js';
 import * as ROUTES from '../constants/routes';
+
 
 
 class Viagem extends Component {
@@ -87,8 +89,7 @@ class Viagem extends Component {
             <section className='dadosViagem'>
                 <form className='formViagem'onSubmit={this.handleSubmit}>
                     <input type={this.props.inputTypeTitulo} name={this.props.titulo} placeholder={this.props.tituloPlaceholder} onChange={this.handleChange} value={this.state.titulo}/>
-                    <input type={this.props.inputTypeParticipantes} id={this.props.id} name={this.props.participantes} placeholder={this.props.participantesPlaceholder} onChange={this.handleChange} value={this.state.participantes}
-                    rows={this.props.rows} cols={this.props.cols}/>
+                    <input type={this.props.inputTypeParticipantes} id={this.props.id} name={this.props.participantes} placeholder={this.props.participantesPlaceholder} onChange={this.handleChange} value={this.state.participantes}/>
                     <button className='btnViagem'>{this.props.btn}</button> 
                 </form>  
             </section>
@@ -111,11 +112,11 @@ class Viagem extends Component {
                           
                           <div className='containerBtnCardViagem' >
                             <button className='btnCardViagem'onClick={() => this.removeViagens(viagens.id)}>REMOVER</button>
-                            <Link to={ROUTES.PAINELVIAGEM}><button className='btnCardEditarViagem'>EDITAR</button></Link>
+                            <Link to={{ pathname: `/painel/${viagens.id}` }}
+                            
+                            
+                            ><button className='btnCardEditarViagem'>EDITAR</button></Link>
                           </div>
-                          
-                          
-                          
                         </li>
                         )
                     })}

@@ -5,14 +5,17 @@ import { Link } from 'react-router-dom'
 import firebase, {database ,auth, provider, providerFb, providerTw} from './../firebase.js';
 import * as ROUTES from '../constants/routes';
 import NavDashboard from './../componentes/NavDashboard';
+import Viagem from './../componentes/Viagem';
 
 
 class PainelViagem extends Component {
     constructor() {
+
         super();
         this.state = {
-          titulo: '',
-          participantes: [],
+          gasto: '',
+          pagante: [],
+          valor:'',
           viagens: [],
           avatar:[]
         }
@@ -84,7 +87,12 @@ class PainelViagem extends Component {
     }
     
     render() {
+      const id = this.props.location.pathname.match(/\/(-.*)$/)[1];
+      // console.log(id)
       return (
+          <div>
+
+          
         <div>
             <NavDashboard
             classNameNav="navDashboard"
@@ -96,7 +104,51 @@ class PainelViagem extends Component {
             classNameBtn="btnLogout"
             />
         </div>
-           
+        <div>
+        <section className='dadosViagem'>
+            <form className='formViagem'onSubmit={this.handleSubmit}>
+                <input type="text" name="gasto" placeholder="Gastei com?" onChange={this.handleChange} value={this.state.gasto}/>
+                <input type="text" name="pagante" placeholder= "Quem pagou?" onChange={this.handleChange} value={this.state.pagante}/>
+                <input type="text" name="valor" placeholder= "Quanto custou?" onChange={this.handleChange} value={this.state.valor}/>
+                <button className='btnViagem'>ADD</button> 
+            </form>  
+        </section>
+
+
+        <section className='display-item'>
+                <div className="wrapperTarget">
+                  <Link to={ROUTES.DASHBOARD}>Voltar</Link>
+                    <ul className="cardTarget">
+                    {this.state.viagens.map((viagens) => {
+                      if(viagens.id == id){
+                        return (
+                          <li key={viagens.id}>
+                            <div className='containerCardTarget'>
+                              <h3 className='tituloCardViagemTarget'>{viagens.tituloViagem}</h3>
+                              <div className="avatar">
+                                <div>{viagens.avatarParticipantes.map((index) =>{
+                                  return(<div className="avatarInicial">{index}</div>)
+                                })}</div>
+                              </div>
+                            </div>
+
+                            <p>Lorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhd</p>
+                            
+                            <div className='containerBtnCardViagemPainel' >
+                              <button className='btnCardViagemPainel'onClick={() => this.removeViagens(viagens.id)}>REMOVER</button>
+                            </div>
+                          </li>
+                          )
+                      }
+                       
+                    })}
+                    
+                    </ul>
+                </div>
+            </section>
+            
+        </div>
+        </div>   
       );
     }
   }

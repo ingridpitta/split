@@ -26,8 +26,6 @@ class Dashboard extends Component {
                 titulo="titulo"
                 tituloPlaceholder="Para onde você está viajando?"
                 id="story"
-                rows="5"
-                cols="33"
                 participantes="participantes"
                 participantesPlaceholder="Com quem você está viajando?"
                 inputTypeParticipantes ="text"
