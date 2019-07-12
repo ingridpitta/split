@@ -92,3 +92,17 @@ p{
 }
 
 
+
+.mock{
+display:flex;
+flex-direction: row;
+justify-content: space-between;
+font-weight: bold;
+}
+
+.mock-texto{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

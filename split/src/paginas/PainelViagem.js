@@ -14,7 +14,7 @@ class PainelViagem extends Component {
         super();
         this.state = {
           gasto: '',
-          pagantes: [],
+          pagante: [],
           valor:'',
           viagens: [],
           avatar:[]
@@ -31,15 +31,14 @@ class PainelViagem extends Component {
           let newState = [];
           
           for (let item in viagens) {
-            let arrPagantes = viagens[item].custoViagem[0].pagantes;
-            // let arrPagantesJoin = arrPagantes.join(",");
+            let arrParticipantes = viagens[item].participantesViagem;
+            let arrParticipanteJoin = arrParticipantes.join(",");
             
             newState.push({
               id: item, 
-              gastoViagem: viagens[item].custoViagem[0].gastoViagem,
-              pagantesViagem: arrPagantes,
-              avatarPagantes: viagens[item].custoViagem[0].avatarPagantes,
-              valorGasto:viagens[item].custoViagem[0].valorGasto,
+              tituloViagem: viagens[item].tituloViagem,
+              participantesViagem: arrParticipanteJoin,
+              avatarParticipantes: viagens[item].avatarParticipantes,
             });
           }
           this.setState({
@@ -57,13 +56,11 @@ class PainelViagem extends Component {
     handleSubmit(e) {
         e.preventDefault();
         const viagensRef = firebase.database().ref('viagens');
-        let pagantesViagemSplit = (this.state.pagantes).split(",");
+        let participantesViagemSplit = (this.state.participantes).split(",");
         const viagens = {
-          gastoViagem: this.state.gasto,
-          valorGasto: this.state.valor,
-          pagantesViagem: pagantesViagemSplit,
-          
-          avatarPagantes:pagantesViagemSplit.map(function(item){
+          tituloViagem: this.state.titulo,
+          participantesViagem: participantesViagemSplit,
+          avatarParticipantes:participantesViagemSplit.map(function(item){
             let letras = item.split('')
             let inicial = [letras].map(function(el){
               return(el[0])
@@ -78,11 +75,9 @@ class PainelViagem extends Component {
         viagensRef.push(viagens);
 
         this.setState({
-          gasto: '',
-          pagantes: [],
-          valor:'',
-          viagens: [],
-          avatar:[]
+          titulo: '',
+          participantes: '',
+          avatar:'',
         });
     }
 
@@ -111,10 +106,9 @@ class PainelViagem extends Component {
         </div>
         <div>
         <section className='dadosViagem'>
-          <Link to={ROUTES.DASHBOARD} className="targetVoltar">Voltar</Link>
             <form className='formViagem'onSubmit={this.handleSubmit}>
                 <input type="text" name="gasto" placeholder="Gastei com?" onChange={this.handleChange} value={this.state.gasto}/>
-                <input type="text" name="pagante" placeholder= "Quem pagou?" onChange={this.handleChange} value={this.state.pagantes}/>
+                <input type="text" name="pagante" placeholder= "Quem pagou?" onChange={this.handleChange} value={this.state.pagante}/>
                 <input type="text" name="valor" placeholder= "Quanto custou?" onChange={this.handleChange} value={this.state.valor}/>
                 <button className='btnViagem'>ADD</button> 
             </form>  
@@ -122,7 +116,7 @@ class PainelViagem extends Component {
 
 
         <section className='display-itemTarget'>
-          
+          <Link to={ROUTES.DASHBOARD} className="targetVoltar">Voltar</Link>
                 <div className="wrapperTarget">
                   
                     <ul className="cardTarget">
@@ -133,13 +127,26 @@ class PainelViagem extends Component {
                             <div className='containerCardTarget'>
                               <h3 className='tituloCardViagemTarget'>{viagens.tituloViagem}</h3>
                               <div className="avatar">
-                                {/* <div>{viagens.avatarParticipantes.map((index) =>{
+                                <div>{viagens.avatarParticipantes.map((index) =>{
                                   return(<div className="avatarInicial">{index}</div>)
-                                })}</div> */}
+                                })}</div>
                               </div>
                             </div>
 
-                            <p>Lorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhdLorem auishdiahdiashdkhsadasdasjdbasjhdjashdjhasdhsajkhdjashdjkahsdasjhdjaskhdjashdkasdkashdkjsahdjkashdkajshdjakshdkajshdjkashdjakhsdkasjhdkasjhdkajshdkajshdjkashhsakjhd</p>
+                            <div>
+                              
+                              <div className="mock">
+                                <p>Despesa</p>
+                                <p>Pagante</p>
+                                <p>Valor</p>
+                              </div>
+                              <div className="mock-texto">
+                              <p>Combustível</p>
+                              <p>Larissa</p>
+                              <p>R$100,00</p>
+                              </div>
+                              
+                            </div>
                             
                             <div className='containerBtnCardViagemPainel' >
                               <button className='btnCardViagemPainel'onClick={() => this.removeViagens(viagens.id)}>REMOVER</button>
